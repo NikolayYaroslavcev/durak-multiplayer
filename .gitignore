@@ -1,0 +1,21 @@
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.next/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.pnpm-store/
+
+# Guards against `tsc` being run without an explicit outDir inside a package's
+# src/ directory (which emits compiled output next to the .ts sources instead
+# of into dist/). Real dist/ output is already covered by the dist/ rule above.
+packages/*/src/**/*.js
+packages/*/src/**/*.d.ts
+apps/*/src/**/*.js
+apps/*/src/**/*.d.ts

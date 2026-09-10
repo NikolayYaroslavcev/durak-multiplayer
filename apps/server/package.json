@@ -1,0 +1,32 @@
+{
+  "name": "@game/server",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@game/game-core": "workspace:*",
+    "@nestjs/common": "^11.2.3",
+    "@nestjs/core": "^11.2.3",
+    "@nestjs/platform-express": "^11.2.3",
+    "@nestjs/platform-socket.io": "^11.2.3",
+    "@nestjs/websockets": "^11.2.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "socket.io": "^4.8.3",
+    "zod": "^4.5.4"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm --filter @game/game-core run build && tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.2.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.5.0",
+    "jest": "^30.5.1",
+    "socket.io-client": "^4.8.3",
+    "ts-jest": "^29.4.12",
+    "typescript": "^5.9.3"
+  }
+}

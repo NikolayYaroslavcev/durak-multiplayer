@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@game/game-core": ["../../packages/game-core/src/index.ts"],
+      "@game/game-core/*": ["../../packages/game-core/src/*"]
+    }
+  },
+  "include": ["src", "test"]
+}

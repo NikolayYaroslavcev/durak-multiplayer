@@ -1,0 +1,9 @@
+pnpm-lock.yaml
+pnpm-workspace.yaml
+**/dist/**
+**/.next/**
+**/node_modules/**
+**/coverage/**
+*.tsbuildinfo
+*.md
+tsconfig*.json
