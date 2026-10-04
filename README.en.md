@@ -12,8 +12,7 @@ second client or a second game in the future.
 
 Details of the original plan and architectural decisions:
 [plan-testovogo-zadaniya.md](./plan-testovogo-zadaniya.md),
-[docs/architecture-research.md](./docs/architecture-research.md). The history
-of AI usage during development: [AI_USAGE.md](./AI_USAGE.md).
+[docs/architecture-research.md](./docs/architecture-research.md).
 
 ![Mini Multiplayer Game Platform](docs/screenshot.png)
 
@@ -153,35 +152,6 @@ What is covered:
   incomplete data), `SocketProvider` states around `match_found`,
   session restoration and reconnect errors (`INVALID_SESSION`/
   `ROOM_NOT_FOUND` correctly clear the saved session).
-
-## Known MVP limitations
-
-This is a 3-4 day take-home assignment, not a production service. The following was deliberately
-left out of the MVP:
-
-- **In-memory state.** Active rooms, the matchmaking queue, and
-  session indexes live only in the memory of a single process. A server restart
-  loses all active games; multiple server instances cannot share
-  state without an external store (Redis). Horizontal scaling is not
-  implemented and was not needed for the three critical scenarios.
-- **No authentication.** A player identifies themselves only with the session token
-  issued at match time; there are no accounts and no persistent identity between visits.
-  As a result, the same person who opens two tabs without a saved
-  session can theoretically queue up against themselves and end up in a game
-  with themselves. This is not a protocol vulnerability: each tab
-  still sees only its own hand through `toClientView`, and
-  the server remains the source of truth in both tabs equally. It is just a
-  funny edge case of a demo mode without user accounts, which authentication
-  would solve, but adding it for this one case would be an unnecessary
-  complication of the architecture.
-- **No game history, Postgres, Redis, or Docker Compose.** None of the three critical
-  scenarios needs them (matchmaking → game, rejecting an illegal
-  move, disconnect → reconnect); adding these technologies
-  for show would increase the surface for bugs with no demonstration value.
-- **CORS** is restricted via `CORS_ORIGIN` (default
-  `http://localhost:3000`). For a real deployment it is enough to set the
-  environment variable once to the frontend's address; the infrastructure (reverse
-  proxy, TLS, etc.) is out of scope.
 
 ## Environment variables
 
