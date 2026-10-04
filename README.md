@@ -10,9 +10,6 @@ multiplayer-игровой платформы (lobby → matchmaking → ком�
 не зависела от React/Phaser/NestJS/Socket.IO и могла переиспользоваться
 вторым клиентом или второй игрой в будущем.
 
-Подробности архитектурных решений:
-[docs/architecture-research.md](./docs/architecture-research.md).
-
 ![Mini Multiplayer Game Platform](docs/screenshot.png)
 
 ## Стек

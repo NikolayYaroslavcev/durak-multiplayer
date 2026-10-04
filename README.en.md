@@ -10,9 +10,6 @@ The architecture is designed so that the game logic (`packages/game-core`)
 does not depend on React/Phaser/NestJS/Socket.IO and can be reused by a
 second client or a second game in the future.
 
-Details of the architectural decisions:
-[docs/architecture-research.md](./docs/architecture-research.md).
-
 ![Mini Multiplayer Game Platform](docs/screenshot.png)
 
 ## Stack
